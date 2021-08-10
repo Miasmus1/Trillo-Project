@@ -37,14 +37,55 @@
                             <use href="img/sprite.svg#icon-chat"></use>
                         </svg>
                         <span class="user-nav__notification">17</span>
+
+                        <!-- Dropdown Menu for Chat Icon -->
+                        <div class="user-nav__dropdown-chat">
+                            <div class="user-nav__dropdown-chatbox--left">
+                                <img src="/img/user-1.jpg" alt="User 1">
+                                <p class="user-nav__chat-text">How is trillo project going? Have you finished it? <span class="chat-date">22:16 Today</span></p>
+                            </div>
+
+                            <div class="user-nav__dropdown-chatbox--right">
+                                <img src="/img/user-2.jpg" alt="User 2">
+                                <p class="user-nav__chat-text">I really like the color palette on trillo project! <span class="chat-date">Yesterday</span></p>
+                            </div>
+
+                            <div class="user-nav__dropdown-chatbox--left">
+                                <img src="/img/user-5.jpg" alt="User 3">
+                                <p class="user-nav__chat-text">What is next!?!? <span class="chat-date">This Week</span></p>
+                            </div>
+
+                            <div class="user-nav__dropdown-chatbox--right">
+                                <img src="/img/user-6.jpg" alt="User 4">
+                                <p class="user-nav__chat-text">OMG! This chat popup so sexy!<span class="chat-date">5 Months Ago</span></p>
+                            </div>
+
+                            <button class="btn-white">Show All</button>
+                        </div>
                     </div>
 
+                    
+
+
                     <div class="user-nav__user">
-                        <img src="img/user.jpg" alt="User photo" class="user-nav__user-photo">
+                        <img src="img/user-me.jpg" alt="User photo" class="user-nav__user-photo">
                         <span class="user-nav__user-name">Toygar</span>
+
+                        <!-- Dropdown Menu for Username -->
+                        <div class="user-nav__dropdown-username">
+                            <ul class="user-nav__dropdown-list">
+                                <div class="user-nav__dropdown-item"><li>See Your Profile</li></div>
+                                <div class="user-nav__dropdown-item"><li>Account Settings</li></div>
+                                <div class="user-nav__dropdown-item"><li>Help & Support</li></div>
+                                <div class="user-nav__dropdown-item"><li>Logout</li></div>
+                            </ul>
+                        </div>
+
                     </div>
 
                 </nav>
+
+
             </header>
 
             <div class="content">
@@ -94,13 +135,16 @@
                 <main class="hotel-view">
                     <div class="gallery">
                         <figure class="gallery__item">
-                            <img src="img/hotel-1.jpg" alt="Photo of Hotel 1" class="gallery__photo">
+                            <img srcset="img/hotel-1.jpg 1500w, img/hotel-1-small.jpg 400w" sizes="(max-width: 56.25em) 35vw, (max-width: 37.5em) 30vw, 350px" alt="Photo of Hotel 1" class="gallery__photo" src="img/hotel-1.jpg">
+                            <figcaption class="gallery__caption">Life begins at night</figcaption>
                         </figure>
                         <figure class="gallery__item">
-                            <img src="img/hotel-2.jpg" alt="Photo of Hotel 2" class="gallery__photo">
+                            <img srcset="img/hotel-2.jpg 1500w, img/hotel-2-small.jpg 400w" sizes="(max-width: 56.25em) 35vw, (max-width: 37.5em) 30vw, 350px" alt="Photo of Hotel 1" class="gallery__photo" src="img/hotel-2.jpg">
+                            <figcaption class="gallery__caption">A fiery kiss from sun</figcaption>
                         </figure>
                         <figure class="gallery__item">
-                            <img src="img/hotel-3.jpg" alt="Photo of Hotel 3" class="gallery__photo">
+                            <img srcset="img/hotel-3.jpg 1500w, img/hotel-3-small.jpg 400w" sizes="(max-width: 56.25em) 35vw, (max-width: 37.5em) 30vw, 350px" alt="Photo of Hotel 1" class="gallery__photo" src="img/hotel-3.jpg">
+                            <figcaption class="gallery__caption">Everyday ends beautiful</figcaption>
                         </figure>
                     </div>
 
