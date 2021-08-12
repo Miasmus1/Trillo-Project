@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 
     @media only screen and (max-width: $bp-smallest) {
         order: 1;
@@ -67,6 +68,70 @@
         width: 2rem;
         fill: var(--color-grey-dark-3);
     }
+
+    &__dropdown {
+        visibility: hidden;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70%;
+        left: auto;
+        width: 92%;
+        background-image: linear-gradient(to bottom, #ff3366e0, #BA265D);
+        z-index: 110;
+        border-radius: 0 0 10px 10px;
+        padding: 1rem;
+
+        &-item {
+            display: flex;
+            background-color: var(--color-primary-dark);
+            border-radius: 100px;
+            padding: .5rem;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            align-items: center;
+            justify-content: space-around;
+
+            &:not(:last-child) {
+                margin-bottom: .5rem;
+            }
+
+            &:hover {
+                background-color: var(--color-grey-light-1);
+                color: var(--color-primary);
+            }
+        }
+
+        &-photo {
+            width: 13%;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        &-city {
+            font-size: .9rem;
+            font-weight: 400;
+        }
+
+        & > ul {
+            list-style: none;
+        }
+    }
+
+    &__input:focus ~ &__dropdown {
+        visibility: visible;
+        opacity: 1;
+        top: 100%;
+        transition: all .5s;
+    }
+
+    &__stars-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: var(--color-primary)
+    }
 }
 
 
@@ -115,10 +180,6 @@
         background-image: linear-gradient(to bottom, #ff3366e0, #BA265D);
         color: #fff;
         transition: all .5s;
-
-        @media only screen and (max-width: $bp-smallest) {
-            
-        }
     }
 
     &__dropdown-chatbox--left, &__dropdown-chatbox--right {
@@ -145,7 +206,7 @@
 
     &__chat-text {
         font-size: 1rem;
-        font-weight: 500;
+        font-weight: 600;
         padding: .5rem;
         color: currentColor;
         position: relative;
@@ -178,10 +239,35 @@
         }
     }
 
+    &__icon-box--white {
+        display: flex;
+    
+        :hover {
+        background-color: #fff;
+        border-radius: 50%;
+        
+            > * {
+            fill: var(--color-primary);
+            }
+        }
+    }
+
     &__icon {
         height: 2.25rem;
         width: 2.25rem;
         fill: var(--color-grey-dark-2);
+        
+
+        &--white {
+            height: 2.5rem;
+            width: 2.5rem;
+            padding: .3rem;
+            fill: #fff;
+
+            &:not(:last-child) {
+                margin-right: 1.5rem;
+            }
+        }
     }
 
     &__notification {
@@ -210,6 +296,12 @@
         position: relative;
     }
 
+
+    &__dropdown-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
     &__dropdown-username {
         visibility: hidden;
         position: absolute;
@@ -219,10 +311,6 @@
         z-index: 150;
         box-shadow: var(--shadow-dark-subtle);
         border-radius: 3px;
-
-        @media only screen and (max-width: $bp-smallest) {
-            width: 85%;
-        }
     }
 
     &__dropdown-list {
@@ -230,97 +318,72 @@
         list-style: none;
         flex: 1;
 
-        & > *:nth-child(1) > li::before {
+        & > * {
+            display: block;
+            padding: .5rem;
+            transition: background-color .1s;
+        }
+
+        & > * > li::before {
             content: "";
             display: inline-block;
             height: 1.2rem;
             width: 1.2rem;
             margin-right: .7rem;
 
+            background-size: cover;
+
+            background-color: currentColor;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+        }
+
+        & > *:nth-child(1) > li::before {
             // Older Browser
             background-image: url(../img/tumblr-with-circle.svg);
-            background-size: cover;
 
             // Newer Browser -- SVG
             @supports (-webkit-mask-image: url()) or (mask-image: url()) {
-                background-color: currentColor;
                 -webkit-mask-image: url(../img/tumblr-with-circle.svg);
-                -webkit-mask-size: cover;
                 mask-image: url(../img/tumblr-with-circle.svg);
-                mask-size: cover;
                 background-image: none;
             }
         }
 
         & > *:nth-child(2) >li::before {
-            content: "";
-            display: inline-block;
-            height: 1.2rem;
-            width: 1.2rem;
-            margin-right: .7rem;
-
             // Older Browser
-            background-image: url(../img/list.svg);
-            background-size: cover;
+            background-image: url(../img/cog.svg);
 
             // Newer Browser -- SVG
             @supports (-webkit-mask-image: url()) or (mask-image: url()) {
-                background-color: currentColor;
-                -webkit-mask-image: url(../img/list.svg);
-                -webkit-mask-size: cover;
-                mask-image: url(../img/list.svg);
-                mask-size: cover;
+                -webkit-mask-image: url(../img/cog.svg);
+                mask-image: url(../img/cog.svg);
                 background-image: none;
             }
         }
 
         & > *:nth-child(3) >li::before {
-            content: "";
-            display: inline-block;
-            height: 1.2rem;
-            width: 1.2rem;
-            margin-right: .7rem;
-
             // Older Browser
             background-image: url(../img/help-with-circle.svg);
-            background-size: cover;
 
             // Newer Browser -- SVG
             @supports (-webkit-mask-image: url()) or (mask-image: url()) {
-                background-color: currentColor;
                 -webkit-mask-image: url(../img/help-with-circle.svg);
-                -webkit-mask-size: cover;
                 mask-image: url(../img/help-with-circle.svg);
-                mask-size: cover;
                 background-image: none;
             }
         }
 
         & > *:nth-child(4) >li::before {
-            content: "";
-            display: inline-block;
-            height: 1.2rem;
-            width: 1.2rem;
-            margin-right: .7rem;
-
             // Older Browser
             background-image: url(../img/log-out.svg);
-            background-size: cover;
 
             // Newer Browser -- SVG
             @supports (-webkit-mask-image: url()) or (mask-image: url()) {
-                background-color: currentColor;
                 -webkit-mask-image: url(../img/log-out.svg);
-                -webkit-mask-size: cover;
                 mask-image: url(../img/log-out.svg);
-                mask-size: cover;
                 background-image: none;
             }
-        }
-        
-        & > * {
-            display: block;
-            padding: .5rem;
         }
 
         & > *:hover {
@@ -457,6 +520,7 @@
 
     &__item {
         position: relative;
+        overflow: hidden;
 
 
         & > figcaption {
@@ -481,9 +545,12 @@
     &__photo {
         width: 100%;
         display: block;
-    }
+        transition: all .5s;
 
-    
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
 }
 
 
@@ -629,8 +696,6 @@
 }
 
 
-
-
 // LIST
 .list {
     list-style: none;
@@ -770,7 +835,6 @@
 }
 
 
-
 ///// CALL TO ACTION SECTION /////
 .cta {
     padding: 3.5rem 0;
@@ -788,6 +852,7 @@
         margin-bottom: 2.5rem;
     }
 }
+
 
 // CTA BUTTON
 .btn {
@@ -821,7 +886,6 @@
         left: 0;
         top: -100%;
     }
-
 
     &:hover {
         background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
